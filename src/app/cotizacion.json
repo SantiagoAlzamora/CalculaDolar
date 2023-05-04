@@ -1,0 +1,14 @@
+{
+    "Dolar Blue":{
+        "compra":450,
+        "venta":442
+    },
+    "Dolar CCL":{
+        "compra":440,
+        "venta":435
+    },
+    "Dolar Banco":{
+        "compra":272,
+        "venta":276
+    }
+}

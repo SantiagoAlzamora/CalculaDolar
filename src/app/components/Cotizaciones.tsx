@@ -1,26 +1,12 @@
-"use client"
-import Form from './components/Form'
-import styles from './page.module.css'
-import "./calculadora.css"
-import {  useState } from 'react'
-import useCotizaciones from './hooks/useCotizaciones'
+import { obtenerPreciosDolar } from '@/services/dolarService'
 
+// No lo uso por incompatibilidades entre server y client
 
-export default function Home() {
-  const [amount, setAmount] = useState(0)
-  const {cotizaciones} = useCotizaciones()
+export default async function Cotizaciones({ amount }: { amount: number }) {
+    const cotizaciones = await obtenerPreciosDolar()
 
-  function handleChange(value: number) {
-    setAmount(value)
-  }
-
-  return (
-    <main className={styles.main}>
-      <h1>CalculaDolar</h1>
-      <div className="calculadora">
-        <section><Form value={amount} changeAmount={handleChange} /></section>
-        <section className="precios">
-        <ul className='cotizaciones'>
+    return (
+        <ul>
             {
                 cotizaciones.map((cotizacion) => {
 
@@ -46,9 +32,5 @@ export default function Home() {
                 )
             }
         </ul>
-        </section>
-      </div>
-    </main>
-  )
+    )
 }
-
