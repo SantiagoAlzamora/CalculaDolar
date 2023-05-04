@@ -10,8 +10,13 @@ export default function Home() {
   const [amount, setAmount] = useState(0)
   const { cotizaciones } = useCotizaciones()
 
-  function handleChange(value: number) {
-    setAmount(value)
+  function handleChange(value: string) {
+
+    const newAmount = Number(value)
+
+    if(isNaN(newAmount)) return
+    
+    setAmount(Number(value))
   }
 
   return (
@@ -26,7 +31,7 @@ export default function Home() {
 
                 const total = amount ? Number(amount / cotizacion.venta) : cotizacion.venta
                 return (
-                  <li key={cotizacion.nombre}>
+                  <li className='cotizacion' key={cotizacion.nombre}>
                     <div className='dolar-name'>{cotizacion.nombre}</div>
                     <div className='precio'>
                       {amount !== 0 &&

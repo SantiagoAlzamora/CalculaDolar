@@ -8,7 +8,8 @@
     border-radius: 10px;
     gap: 1rem;
 }
-h1{
+
+h1 {
     color: black;
 }
 
@@ -19,57 +20,71 @@ h1{
     padding: 1rem;
 }
 
-.cotizaciones{
+.cotizaciones {
     height: 100%;
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
 }
 
-ul{
+ul {
     list-style: none;
 }
 
-li{
+li {
     display: flex;
     justify-content: space-between;
 }
 
-.precio{
+.precio {
     display: flex;
     align-items: center;
     gap: 1rem;
     color: rgb(77, 245, 189)
 }
 
-.precio,.precio div{
+.precio,
+.precio div {
     font-weight: bold;
     font-size: 1.1rem;
-    
+
 }
 
-.precio div{
+.precio div {
     color: rgb(69, 211, 164);
     font-size: 0.9rem;
 }
 
-.dolar-name{
+.dolar-name {
     font-size: 0.9rem;
 }
 
 
-input[type=number]::-webkit-inner-spin-button,
-input[type=number]::-webkit-outer-spin-button {
+input[type=text]::-webkit-inner-spin-button,
+input[type=text]::-webkit-outer-spin-button {
     -webkit-appearance: none;
     margin: 0;
 }
 
-input[type=number] {
+input[type=text] {
     width: 100%;
     outline: none;
     border: none;
     background-color: lightgray;
-    color:black;
-    padding:5px;
+    color: black;
+    padding: 5px;
     text-align: center;
+}
+
+
+@media (max-width: 950px) {
+    .precio{
+        display: flex;
+        flex-direction: column-reverse;
+    }
+
+    .cotizacion{
+        display: flex;
+        align-items: center;
+    }
 }
