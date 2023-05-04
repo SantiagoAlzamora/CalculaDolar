@@ -1,10 +1,8 @@
 "use client"
 
-
-
 interface FormProps {
   value: number,
-  changeAmount: (valor:number) =>(void);
+  changeAmount: (valor: number) => (void);
 }
 
 export default function Form({ value, changeAmount }: FormProps) {

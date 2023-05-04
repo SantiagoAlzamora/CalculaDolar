@@ -4,16 +4,16 @@ import { useEffect, useState } from "react"
 
 
 export default function useCotizaciones() {
-    const [cotizaciones, setCotizaciones] = useState<Dolar[]>([])
+	const [cotizaciones, setCotizaciones] = useState<Dolar[]>([])
 
-    useEffect(() => {
-        const updateCotizaciones = async () => {
-            const data = await obtenerPreciosDolar()
-            setCotizaciones(data)
-        }
+	useEffect(() => {
+		const updateCotizaciones = async () => {
+			const data = await obtenerPreciosDolar()
+			setCotizaciones(data)
+		}
 
-        updateCotizaciones()
-    }, [])
+		updateCotizaciones()
+	}, [])
 
-    return {cotizaciones}
+	return { cotizaciones }
 }

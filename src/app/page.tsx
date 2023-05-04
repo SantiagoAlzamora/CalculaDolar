@@ -2,13 +2,13 @@
 import Form from './components/Form'
 import styles from './page.module.css'
 import "./calculadora.css"
-import {  useState } from 'react'
+import { useState } from 'react'
 import useCotizaciones from './hooks/useCotizaciones'
 
 
 export default function Home() {
   const [amount, setAmount] = useState(0)
-  const {cotizaciones} = useCotizaciones()
+  const { cotizaciones } = useCotizaciones()
 
   function handleChange(value: number) {
     setAmount(value)
@@ -20,32 +20,32 @@ export default function Home() {
       <div className="calculadora">
         <section><Form value={amount} changeAmount={handleChange} /></section>
         <section className="precios">
-        <ul className='cotizaciones'>
+          <ul className='cotizaciones'>
             {
-                cotizaciones.map((cotizacion) => {
+              cotizaciones.map((cotizacion) => {
 
-                    const total = amount ? Number(amount / cotizacion.venta) : cotizacion.venta
-                    return (
-                        <li key={cotizacion.nombre}>
-                            <div className='dolar-name'>{cotizacion.nombre}</div>
-                            <div className='precio'>
-                                {amount !== 0 &&
-                                    <div>{Number(total).toLocaleString("es-AR", {
-                                        style: "currency",
-                                        currency: "ARS"
-                                    })}</div>
-                                }
-                                {Number(cotizacion.venta).toLocaleString("es-AR", {
-                                    style: "currency",
-                                    currency: "ARS"
-                                })}
-                            </div>
-                        </li>
-                    )
-                }
+                const total = amount ? Number(amount / cotizacion.venta) : cotizacion.venta
+                return (
+                  <li key={cotizacion.nombre}>
+                    <div className='dolar-name'>{cotizacion.nombre}</div>
+                    <div className='precio'>
+                      {amount !== 0 &&
+                        <div>{Number(total).toLocaleString("es-AR", {
+                          style: "currency",
+                          currency: "ARS"
+                        })}</div>
+                      }
+                      {Number(cotizacion.venta).toLocaleString("es-AR", {
+                        style: "currency",
+                        currency: "ARS"
+                      })}
+                    </div>
+                  </li>
                 )
+              }
+              )
             }
-        </ul>
+          </ul>
         </section>
       </div>
     </main>
