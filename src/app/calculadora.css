@@ -83,6 +83,10 @@ input[type=text] {
         flex-direction: column-reverse;
     }
 
+    .calculadora{
+        width: 90%;
+    }
+
     .cotizacion{
         display: flex;
         align-items: center;
